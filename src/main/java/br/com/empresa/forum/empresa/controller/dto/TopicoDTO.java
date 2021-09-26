@@ -1,4 +1,4 @@
-package br.com.empresa.forum.empresa.dto;
+package br.com.empresa.forum.empresa.controller.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
