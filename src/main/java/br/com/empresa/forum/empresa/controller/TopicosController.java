@@ -3,6 +3,7 @@ package br.com.empresa.forum.empresa.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.empresa.forum.empresa.controller.dto.DetalhesDoTopicoDTO;
 import br.com.empresa.forum.empresa.controller.dto.TopicoDTO;
+import br.com.empresa.forum.empresa.controller.form.AtuzalizacaoTopicoForm;
 import br.com.empresa.forum.empresa.controller.form.TopicoForm;
 import br.com.empresa.forum.empresa.modelo.Topico;
 import br.com.empresa.forum.empresa.repository.CursoRepository;
@@ -65,4 +68,11 @@ public class TopicosController {
 		return new DetalhesDoTopicoDTO();
 	}
 
+	@PutMapping("/{id}")
+	@Transactional
+	public ResponseEntity<TopicoDTO> atualizar(@PathVariable Long id, @RequestBody @Valid AtuzalizacaoTopicoForm form) {
+		Topico topico = form.atualizar(id, this.topicoRepository);		
+		return ResponseEntity.ok(new TopicoDTO(topico));		
+	}
+	
 }
