@@ -7,6 +7,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import br.com.empresa.forum.empresa.modelo.Usuario;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -31,6 +33,16 @@ public class TokenService {
 				.setExpiration(dataExpiracao) // data de expiração do token. - data de validade do token
 				.signWith(SignatureAlgorithm.HS256, secret) // criptografia do token - algoritmo de criptografia a e senha da aplicação para fazer a signatura e gerar hash da criptografia do token  
 				.compact();
+	}
+
+	public boolean isTokenValido(String token) {
+		
+		try {
+			Jws<Claims> parseClaimsJws = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	
