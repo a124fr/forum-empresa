@@ -32,13 +32,13 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 		boolean valido = tokenService.isTokenValido(token);
 				
 		if (valido) {
-			autenticaarCliente(token);
+			autenticarCliente(token);
 		}
 		
 		filterChain.doFilter(request, response);
 	}
 
-	private void autenticaarCliente(String token) {
+	private void autenticarCliente(String token) {
 		Long idUsuario = this.tokenService.getIdUsuario(token);		
 		Usuario usuario = this.usuarioRepository.findById(idUsuario).get();
 		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
