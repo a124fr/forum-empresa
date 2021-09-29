@@ -21,7 +21,7 @@ Tecnologias: java, spring rest, jwt, spring security, spring data jpa, mysql
 /topicos/{id}
 
 ### CADASTRAR
-#### EndPoint PRIVADO - PRECISAR SE AUTENTICAR
+#### EndPoint PRIVADO - PRECISA SE AUTENTICAR
 #### Method POST
 /topicos
 
@@ -34,7 +34,7 @@ Tecnologias: java, spring rest, jwt, spring security, spring data jpa, mysql
 }
 
 ### ATUALIZAR
-#### EndPoint PRIVADO - PRECISAR SE AUTENTICAR
+#### EndPoint PRIVADO - PRECISA SE AUTENTICAR
 #### Method PUT
 #### {id} -> Representa um id de um tópico
 /topicos/{id}
@@ -47,7 +47,7 @@ Tecnologias: java, spring rest, jwt, spring security, spring data jpa, mysql
 }
 
 ### DELETAR
-#### EndPoint PRIVADO - PRECISAR SE AUTENTICAR
+#### EndPoint PRIVADO - PRECISA SE AUTENTICAR
 #### Method DELETE
 #### {id} -> Representa um id de um tópico
 /topicos/{id}
