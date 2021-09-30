@@ -15,7 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 import br.com.empresa.forum.empresa.modelo.Curso;
 
 @DataJpaTest
-//@AutoConfigureTestDatabase(replace = Replace.NONE) -> Em caso de eu quero utilizar o banco mysql
+//@AutoConfigureTestDatabase(replace = Replace.NONE) -> Em caso querer utilizar o banco mysql
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 @ActiveProfiles("test")
 public class CursoRepositoryTest {
